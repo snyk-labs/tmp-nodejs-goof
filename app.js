@@ -18,6 +18,7 @@ var methodOverride = require('method-override');
 var logger = require('morgan');
 var errorHandler = require('errorhandler');
 var optional = require('optional');
+var lusca = require('lusca');
 var marked = require('marked');
 var fileUpload = require('express-fileupload');
 var dust = require('dustjs-linkedin');
@@ -46,6 +47,7 @@ app.use(session({
 }))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(lusca.csrf());
 app.use(fileUpload());
 
 // Routes
